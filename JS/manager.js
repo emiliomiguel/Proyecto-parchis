@@ -1,5 +1,21 @@
 var newGame= new Game();
 newGame.drawBoard();
+$("#dice").click(function(){
+  newGame.dado();
+});
+
+$("#0").addClass("current")
+$("#0").html("X");
+//dibujar ficha dentro de la primera casilla
+
+//encontrar la X
+//borrar la X
+// Reemplazar la X, por id + dado
+// pintat nueva X
+
+
+
+
 
 // function drawBoard(){
 //   var y= [];
