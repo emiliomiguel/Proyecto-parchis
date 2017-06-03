@@ -1,4 +1,3 @@
-
 var Game = function(){
 
 }
@@ -84,29 +83,72 @@ Game.prototype.drawBoard = function(){
   var newx= x.map(function(num){
     return num + 365;
   });
-  x=newx;
-  console.log(x);
+  // var yred= [537,508,479,450,421,392,363,320];
+  // var xred= [288,288,288,288,288,288,288,288];
+  //
+  var yyellow= [29,58,87,116,145,174,203,250];
+  var xyellow=[285,285,285,285,285,285,285,285];
+
+    x=newx;
+    console.log(x);
+
+////////////Entrada roja y yellow////////////
 
 
-  //var yy = [];
-
-  //yy= [0,0,0,0,0,0,0,0,0,29,58,87,116,145,174,203,203,203];
-  //var trans=[];
-  //trans= yy.reverse();
-  //console.log(trans);
-  //var f = yy.concat(trans);
-  //console.log(f);
 
   ///////////////////////////////////////////////////////////////////////
 
-  for(var i = 1; i <= x.length; i++) {
+  for(var i = 1; i <= x.length-1; i++) {
     var $newCell = $("<div class='cell' id='" + i + "'></div>");
-
     $newCell.css({
       bottom: y[i] + "px",
       left: x[i] + "px"
+    })
+    $("#main").append($newCell);
+  }
+
+  for(var i = 68; i < 76; i++) {
+    var $newCell = $("<div class='cell' id='" + i + "'></div>");
+
+    $newCell.css({
+      bottom: yyellow[i - 68] + "px",
+      left: xyellow[i - 68] + "px"
     })
 
     $("#main").append($newCell);
   }
 };
+
+
+
+
+/////////dado/////////
+Game.prototype.dado = function(){
+  var numero_cara = Math.floor(Math.random()*6)+1;
+  var newImg = "img/cara" + numero_cara + ".png";
+  // replace dice src
+  $("#dice").attr("src", newImg);
+  $(".current").html("");
+  var current = $(".current").attr("id");
+  var next = parseInt(current) + numero_cara;
+  // if (next >67 && next===75) {
+  //   console.log("pieza dentro");
+  // } else if (next >67 && next >75){
+  //
+  // }
+  if (next > 75) {
+    next = 75 - (next - 75)
+    $(".current").removeClass("current");
+    $("#" + next).html("X").addClass("current");
+  } else if (next === 75) {
+    alert("oh yeah!")
+    $("#75").append(" X!");
+    $("#0").html("X").addClass("current");
+  } else {
+    $(".current").removeClass("current");
+    $("#" + next).html("X").addClass("current");
+  }
+  // if (next >= 68) {
+  //   next -= 68
+  // }
+}
