@@ -10,6 +10,7 @@ body {
   height: 600px;
 }
 
+
 img {
   width: 100%;
   height: 100%;
@@ -23,11 +24,30 @@ img {
   height: 29px;
   /*border-style: dotted;*/
 }
+.init-yellow{
+  position: absolute;
+  bottom: 112px;
+  left: 500px;
+  width:23px;
+  height: 23px;
+  border-radius: 100%;
+  background-color: yellow;
+  border: 1px solid black;
+}
 
 #dice {
   position: relative;
   left: 200px;
-  top:30px;
+  top: 30px;
   height: 50px;
   width:50px;
+}
+
+#X {
+  position: absolute;
+    width:23px;
+    height: 23px;
+    border-radius: 100%;
+    background-color: yellow;
+    border: 1px solid black;
 }

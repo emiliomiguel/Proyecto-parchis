@@ -119,36 +119,49 @@ Game.prototype.drawBoard = function(){
   }
 };
 
-
+Game.prototype.init = function(){
+  var X ='<div id ="X"></div>';
+  var numero_cara = Math.floor(Math.random()*6)+1;
+  var newImg = "img/cara" + numero_cara + ".png";
+  $("#dice").attr("src", newImg);
+  if (numero_cara === 5) {
+    $("#X").removeClass("init-yellow");
+  } else {
+    var numero_cara = Math.floor(Math.random()*6)+1;
+    var newImg = "img/cara" + numero_cara + ".png";
+    $("#dice").attr("src", newImg);
+  }
+}
 
 
 /////////dado/////////
 Game.prototype.dado = function(){
+  var X = '<div id ="X"></div>';
   var numero_cara = Math.floor(Math.random()*6)+1;
   var newImg = "img/cara" + numero_cara + ".png";
-  // replace dice src
   $("#dice").attr("src", newImg);
-  $(".current").html("");
-  var current = $(".current").attr("id");
-  var next = parseInt(current) + numero_cara;
-  // if (next >67 && next===75) {
-  //   console.log("pieza dentro");
-  // } else if (next >67 && next >75){
-  //
-  // }
-  if (next > 75) {
-    next = 75 - (next - 75)
-    $(".current").removeClass("current");
-    $("#" + next).html("X").addClass("current");
-  } else if (next === 75) {
-    alert("oh yeah!")
-    $("#75").append(" X!");
-    $("#0").html("X").addClass("current");
+
+
+  if ($("#X.init-yellow").length > 0) {
+    if (numero_cara === 5) {
+      $("#X").remove();
+      $("#4").html(X);
+    }
   } else {
-    $(".current").removeClass("current");
-    $("#" + next).html("X").addClass("current");
+    $(".current").html("");
+    var current = $(".current").attr("id");
+    var next = parseInt(current) + numero_cara;
+    if (next > 75) {
+      next = 75 - (next - 75)
+      $(".current").removeClass("current");
+      $("#" + next).html(X).addClass("current");
+    } else if (next === 75) {
+      alert("oh yeah!")
+      $("#75").append(X);
+      $("#main").append("<div id='X' class='init-yellow'</div>")
+    } else {
+      $(".current").removeClass("current");
+      $("#" + next).html(X).addClass("current");
+    }
   }
-  // if (next >= 68) {
-  //   next -= 68
-  // }
 }

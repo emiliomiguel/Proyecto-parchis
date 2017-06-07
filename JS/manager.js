@@ -1,11 +1,37 @@
 var newGame= new Game();
 newGame.drawBoard();
+
 $("#dice").click(function(){
   newGame.dado();
 });
+$("#4").addClass("current")
 
-$("#0").addClass("current")
-$("#0").html("X");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //dibujar ficha dentro de la primera casilla
 
 //encontrar la X
