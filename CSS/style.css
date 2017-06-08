@@ -43,7 +43,7 @@ img {
   width:50px;
 }
 
-#X {
+#X, .finish {
   position: absolute;
     width:23px;
     height: 23px;

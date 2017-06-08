@@ -1,5 +1,5 @@
 var Game = function(){
-
+  this.number=0;
 }
 
 Game.prototype.drawBoard = function(){
@@ -119,23 +119,9 @@ Game.prototype.drawBoard = function(){
   }
 };
 
-Game.prototype.init = function(){
-  var X ='<div id ="X"></div>';
-  var numero_cara = Math.floor(Math.random()*6)+1;
-  var newImg = "img/cara" + numero_cara + ".png";
-  $("#dice").attr("src", newImg);
-  if (numero_cara === 5) {
-    $("#X").removeClass("init-yellow");
-  } else {
-    var numero_cara = Math.floor(Math.random()*6)+1;
-    var newImg = "img/cara" + numero_cara + ".png";
-    $("#dice").attr("src", newImg);
-  }
-}
-
-
 /////////dado/////////
 Game.prototype.dado = function(){
+
   var X = '<div id ="X"></div>';
   var numero_cara = Math.floor(Math.random()*6)+1;
   var newImg = "img/cara" + numero_cara + ".png";
@@ -145,22 +131,27 @@ Game.prototype.dado = function(){
   if ($("#X.init-yellow").length > 0) {
     if (numero_cara === 5) {
       $("#X").remove();
-      $("#4").html(X);
+      $("#4").html(X).addClass("current");
     }
   } else {
     $(".current").html("");
     var current = $(".current").attr("id");
     var next = parseInt(current) + numero_cara;
+
+    $(".current").removeClass("current");
     if (next > 75) {
       next = 75 - (next - 75)
-      $(".current").removeClass("current");
       $("#" + next).html(X).addClass("current");
     } else if (next === 75) {
-      alert("oh yeah!")
-      $("#75").append(X);
-      $("#main").append("<div id='X' class='init-yellow'</div>")
+        this.number +=1;
+        if (this.number===4) {
+          alert("YOU WIN!!");
+        } else {
+          alert("oh yeah!")
+          $("#75").append("<div class='finish'></>");
+          $("#main").append("<div id='X' class='init-yellow'</div>");
+        }
     } else {
-      $(".current").removeClass("current");
       $("#" + next).html(X).addClass("current");
     }
   }

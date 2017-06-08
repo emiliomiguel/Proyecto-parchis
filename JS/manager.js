@@ -4,7 +4,7 @@ newGame.drawBoard();
 $("#dice").click(function(){
   newGame.dado();
 });
-$("#4").addClass("current")
+
 
 
 
