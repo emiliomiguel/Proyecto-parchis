@@ -124,7 +124,7 @@ Game.prototype.dado = function(){
 
   var X = '<div id ="X"></div>';
   var numero_cara = Math.floor(Math.random()*6)+1;
-  var newImg = "img/cara" + numero_cara + ".png";
+  var newImg = "html/img/cara" + numero_cara + ".png";
   $("#dice").attr("src", newImg);
 
 
