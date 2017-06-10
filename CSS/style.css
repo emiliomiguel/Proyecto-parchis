@@ -10,7 +10,6 @@ body {
   height: 600px;
 }
 
-
 img {
   width: 100%;
   height: 100%;
@@ -24,6 +23,7 @@ img {
   height: 29px;
   /*border-style: dotted;*/
 }
+
 .init-yellow{
   position: absolute;
   bottom: 112px;
